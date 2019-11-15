@@ -2,11 +2,11 @@ node {
     try {
         def app
     
-        stage('Clone repository') {
+        stage('Clone Repository') {
             checkout scm
             }
     
-        stage('Build image') {
+        stage('Build Image') {
             app = docker.build('f4biogr/example-app')
             }
 
@@ -16,7 +16,7 @@ node {
                 }
             }  
     
-        stage('Push image') {
+        stage('Push Image') {
             docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
                 app.push("${env.BRANCH_NAME}-latest")
                 app.push("${env.BRANCH_NAME}-${env.BUILD_NUMBER}")
