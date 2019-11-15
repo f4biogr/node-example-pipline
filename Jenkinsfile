@@ -8,6 +8,12 @@ node {
     stage('Build image') {
         app = docker.build('f4biogr/example-app')
     }
+
+    stage('Test') {
+        app.inside {
+            sh 'npm test'
+        }
+    }
     
     stage('Push image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
