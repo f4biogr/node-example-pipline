@@ -1,4 +1,4 @@
-FROM node:10.9.2
+FROM node:latest
 
 COPY . .
 
