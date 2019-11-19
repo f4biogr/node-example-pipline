@@ -1,0 +1,11 @@
+dist: bionic
+language: node
+
+jobs:
+  include:
+    - stage: Build Docker Image
+      script:
+      - docker build -t example-app .
+      - docker images
+    - stage: Test
+      script: docker run --rm example-app node test 
