@@ -11,4 +11,4 @@ jobs:
       - docker tag example-app $DOCKER_USERNAME/example-app
       - docker push $DOCKER_USERNAME/example-app
     - stage: Test
-      script: docker run --rm example-app npm test 
+      script: docker run --rm $DOCKER_USERNAME/example-app npm test 
