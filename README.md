@@ -1,1 +1,1 @@
-# example-app ![](https://github.com/f4biogr/example-app/workflows/Docker%20Image%20CI/badge.svg)
+# example-app ![](https://github.com/f4biogr/example-app/workflows/build-example-app/badge.svg)
