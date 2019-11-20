@@ -1,6 +1,6 @@
 {
   "name": "example-app",
-  "version": "1",
+  "version": "1.0.0",
   "description": "A Hello World HTTP server",
   "main": "main.js",
   "scripts": {
