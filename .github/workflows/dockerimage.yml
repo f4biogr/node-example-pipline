@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the Docker image
+      env:
+        username: f4biogr
+        password: ${{ secrets.GITHUB_TOKEN }}
+      run: | 
+           docker build . --file Dockerfile --tag example-app
+           echo "$password" | docker login docker.pkg.github.com --username "$username" --password-stdin
+           docker tag example-app docker.pkg.github.com/"$username"/example-app/example-app:latest
+           docker push docker.pkg.github.com/"$username"/example-app/example-app:latest
+    - name: Test
+      env:
+        username: ${{ secrets.REPO_USERNAME }}
+      run: docker run --rm  docker.pkg.github.com/"$username"/example-app/example-app:latest npm test
