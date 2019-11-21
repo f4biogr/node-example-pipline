@@ -1,0 +1,14 @@
+dist: bionic
+language: node
+
+jobs:
+  include:
+    - stage: Build Docker Image
+      script:
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - docker build -t example-app .
+      - docker images
+      - docker tag example-app $DOCKER_USERNAME/example-app
+      - docker push $DOCKER_USERNAME/example-app
+    - stage: Test
+      script: docker run --rm $DOCKER_USERNAME/example-app npm test
