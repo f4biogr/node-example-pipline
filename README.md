@@ -1,1 +1,1 @@
-# ![](https://github.com/f4biogr/example-app/workflows/build-example-app/badge.svg)
+# ![](https://github.com/f4biogr/example-app/workflows/build-example-app/badge.svg) [![Build Status](https://travis-ci.com/f4biogr/example-app.svg?branch=master)](https://travis-ci.com/f4biogr/example-app)
