@@ -1,6 +1,5 @@
 dist: bionic
 language: node
-
 jobs:
   include:
     - stage: Build Docker Image
