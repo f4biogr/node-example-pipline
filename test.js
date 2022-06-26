@@ -4,5 +4,6 @@ function test() {
   assert.equal(4 + 4, 8);
 }
 
-if (module == require.main) require('test').run(test);
-
+if (module == require.main) {
+  require('test').test()
+}
